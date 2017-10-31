@@ -1,2 +1,0 @@
-class PostSub < ApplicationRecord
-end

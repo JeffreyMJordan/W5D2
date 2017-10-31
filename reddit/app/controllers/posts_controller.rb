@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def new
     @sub = Sub.find_by_id(params[:sub_id])
     @post = Post.new
+    @all_subs = Sub.all
     render :new
   end
 
@@ -27,12 +28,15 @@ class PostsController < ApplicationController
   end
 
   def index
+    @sub = Sub.find_by_id(params[:sub_id])
+    @posts = @sub.posts
+    render :index
   end
 
   def destroy
   end
 
   def post_params
-    params.require(:post).permit(:title, :url, :content)
+    params.require(:post).permit(:title, :url, :content, sub_ids: [])
   end
 end

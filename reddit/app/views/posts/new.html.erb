@@ -13,5 +13,13 @@ New Post
       <input type="text" name="post[content]" value="">
      </label>
 
+     <br>
+     <% @all_subs.each do |sub|   %>
+        <br>
+        <%= sub.title %>
+        <br>
+        <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>">
+     <% end  %>
+
     <input type="submit" name="" value="Submit">
 </form>
