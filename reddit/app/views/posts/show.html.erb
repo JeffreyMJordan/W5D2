@@ -5,3 +5,15 @@
 <%= @post.content %>
 <br>
 <%= @post.url %>
+<br>
+<% @post.comments.each do |comment| %>
+<br>
+  <%= comment.content %>
+<% end %>
+
+
+<form class="" action="<%= sub_post_comments_url(@sub, @post) %>" method="post">
+  Comment
+  <input type="text" name="comment[content]" value="">
+  <input type="submit" name="" value="Submit Comment">
+</form>

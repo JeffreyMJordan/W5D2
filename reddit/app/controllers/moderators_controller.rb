@@ -17,10 +17,11 @@ class ModeratorsController < ApplicationController
     @mod = Moderator.new(sub_id: params[:sub_id], user_id: user.id)
     @sub = Sub.find_by_id(params[:sub_id])
     if @mod.save
-      flash[:success] = "Made new mod!"
+      flash[:success] = ["Made new mod!"]
       redirect_to sub_url(@sub)
     else
-
+      flash.nowMode[:errors] = @mod.errors.full_messages
+      render :new
     end
   end
 

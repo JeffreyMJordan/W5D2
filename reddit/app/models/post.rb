@@ -14,5 +14,11 @@ class Post < ApplicationRecord
   primary_key: :id,
   class_name: 'Sub')
 
+  has_many(:comments,
+    foreign_key: :post_id,
+    primary_key: :id,
+    class_name: 'Comment'
+  )
+
 
 end
