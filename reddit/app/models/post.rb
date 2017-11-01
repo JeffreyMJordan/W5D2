@@ -20,5 +20,9 @@ class Post < ApplicationRecord
     class_name: 'Comment'
   )
 
+  def top_comments
+    comments.where(parent_id: nil)
+  end
+
 
 end

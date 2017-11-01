@@ -14,6 +14,11 @@ class Comment < ApplicationRecord
     class_name: 'Post'
   )
 
+  has_one(:sub,
+    through: :post,
+    source: :sub
+  )
+
   belongs_to(:author,
     foreign_key: :user_id,
     primary_key: :id,

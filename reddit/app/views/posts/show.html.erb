@@ -6,9 +6,16 @@
 <br>
 <%= @post.url %>
 <br>
-<% @post.comments.each do |comment| %>
-<br>
-  <%= comment.content %>
+<% @post.top_comments.each do |comment| %>
+
+  <br>
+  <ul>
+    <li>
+      <%= render("comments/comment",
+                comment: comment,
+                child_comments: comment.child_comments ) %>
+    </li>
+  </ul>
 <% end %>
 
 

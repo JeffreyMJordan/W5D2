@@ -10,8 +10,13 @@ class CommentsController < ApplicationController
     redirect_to sub_post_url(@sub, @post)
   end
 
+  def show
+    @comment = Comment.find_by_id(params[:id])
+    render :show
+  end
+
   private
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :parent_id)
   end
 end

@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :moderators, only: [:index, :show, :create, :new]
   end
 
+  resources :comments, only: [:show]
 
 end
